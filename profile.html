@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoCollector Profile | CryptoVault</title>
+  <meta name="description" content="Manage your NFT collection, listings, and profile settings on CryptoVault marketplace.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dapp-styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<!-- Header - Fixed top nav bar (height: 64px) -->
+<header class="header" id="header">
+  <div class="header-container">
+    <a href="index.html" class="logo">CryptoVault</a>
+    
+    <div class="search-container">
+      <i data-lucide="search" class="search-icon"></i>
+      <input type="text" class="search-input" placeholder="Search collections, NFTs, or creators..." />
+    </div>
+    
+    <nav class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="about.html">About</a></li>
+    </nav>
+    
+    <button class="wallet-connect wallet-connected" id="wallet-btn">
+      <i data-lucide="wallet" style="width: 20px; height: 20px;"></i>
+      <span>0x123...abc</span>
+    </button>
+    
+    <div class="mobile-menu-btn" id="mobile-menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<!-- User Profile Main Content -->
+<main class="profile-container">
+  
+  <!-- Profile Header Section -->
+  <section class="profile-header">
+    <div class="profile-header-container">
+      <div class="profile-avatar-section">
+        <div class="profile-avatar">
+          <div class="avatar-gradient"></div>
+          <div class="avatar-placeholder">
+            <i data-lucide="user" style="width: 40px; height: 40px;"></i>
+          </div>
+        </div>
+        <div class="profile-info">
+          <h1 class="profile-username">CryptoCollector</h1>
+          <p class="profile-address">0x123...abc</p>
+          <div class="profile-badges">
+            <span class="badge verified">
+              <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+              Verified
+            </span>
+            <span class="badge joined">
+              <i data-lucide="calendar" style="width: 14px; height: 14px;"></i>
+              Joined Nov 2024
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="profile-stats">
+        <div class="stat-item" data-tab="owned">
+          <span class="stat-number">127</span>
+          <span class="stat-label">Owned</span>
+        </div>
+        <div class="stat-item" data-tab="created">
+          <span class="stat-number">23</span>
+          <span class="stat-label">Created</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1.2K</span>
+          <span class="stat-label">Following</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">856</span>
+          <span class="stat-label">Followers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs Section -->
+  <section class="profile-tabs-section">
+    <div class="profile-tabs-container">
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="owned">
+          <i data-lucide="package" style="width: 20px; height: 20px;"></i>
+          Owned
+        </button>
+        <button class="tab-btn" data-tab="created">
+          <i data-lucide="plus-circle" style="width: 20px; height: 20px;"></i>
+          Created
+        </button>
+        <button class="tab-btn" data-tab="activity">
+          <i data-lucide="activity" style="width: 20px; height: 20px;"></i>
+          Activity
+        </button>
+        <button class="tab-btn" data-tab="settings">
+          <i data-lucide="settings" style="width: 20px; height: 20px;"></i>
+          Settings
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab Content -->
+  <section class="profile-content">
+    
+    <!-- Owned Tab Content -->
+    <div class="tab-content active" id="owned-content">
+      <div class="content-header">
+        <h2>Owned NFTs</h2>
+        <div class="content-filters">
+          <select class="filter-select" id="collection-filter">
+            <option value="all">All Collections</option>
+            <option value="cosmic-dreams">Cosmic Dreams</option>
+            <option value="digital-genesis">Digital Genesis</option>
+            <option value="neon-metropolis">Neon Metropolis</option>
+          </select>
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid">
+              <i data-lucide="grid-3x3" style="width: 16px; height: 16px;"></i>
+            </button>
+            <button class="view-btn" data-view="list">
+              <i data-lucide="list" style="width: 16px; height: 16px;"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nft-grid" id="owned-nfts">
+        <!-- Owned NFTs will be dynamically loaded here -->
+      </div>
+    </div>
+
+    <!-- Created Tab Content -->
+    <div class="tab-content" id="created-content">
+      <div class="content-header">
+        <h2>Created NFTs</h2>
+        <a href="#" class="btn btn-primary">
+          <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
+          Create New
+        </a>
+      </div>
+      
+      <div class="nft-grid" id="created-nfts">
+        <!-- Created NFTs will be dynamically loaded here -->
+      </div>
+    </div>
+
+    <!-- Activity Tab Content -->
+    <div class="tab-content" id="activity-content">
+      <div class="content-header">
+        <h2>Activity Feed</h2>
+        <div class="activity-filters">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="purchases">Purchases</button>
+          <button class="filter-chip" data-filter="sales">Sales</button>
+          <button class="filter-chip" data-filter="listings">Listings</button>
+          <button class="filter-chip" data-filter="offers">Offers</button>
+        </div>
+      </div>
+      
+      <div class="activity-timeline" id="activity-timeline">
+        <!-- Activity items will be dynamically loaded here -->
+      </div>
+    </div>
+
+    <!-- Settings Tab Content -->
+    <div class="tab-content" id="settings-content">
+      <div class="content-header">
+        <h2>Profile Settings</h2>
+      </div>
+      
+      <div class="settings-sections">
+        <!-- Profile Information -->
+        <div class="settings-section">
+          <h3>Profile Information</h3>
+          <div class="settings-form">
+            <div class="form-group">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" id="username" class="form-input" value="CryptoCollector" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+              <label for="bio" class="form-label">Bio</label>
+              <textarea id="bio" class="form-textarea" rows="4" placeholder="Tell us about yourself...">NFT enthusiast and digital art collector. Building the future of decentralized ownership.</textarea>
+            </div>
+            <div class="form-group">
+              <label for="website" class="form-label">Website</label>
+              <input type="url" id="website" class="form-input" placeholder="https://yourwebsite.com">
+            </div>
+            <div class="form-group">
+              <label for="twitter" class="form-label">Twitter</label>
+              <input type="text" id="twitter" class="form-input" placeholder="@yourusername">
+            </div>
+            <button class="btn btn-primary">Save Changes</button>
+          </div>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="settings-section">
+          <h3>Notifications</h3>
+          <div class="settings-toggles">
+            <div class="toggle-group">
+              <div class="toggle-info">
+                <span class="toggle-title">Purchase Confirmations</span>
+                <span class="toggle-description">Get notified when your purchases are confirmed</span>
+              </div>
+              <div class="toggle-container">
+                <input type="checkbox" class="toggle-input" id="notify-purchases" checked>
+                <label for="notify-purchases" class="toggle-label">
+                  <span class="toggle-switch"></span>
+                </label>
+              </div>
+            </div>
+            <div class="toggle-group">
+              <div class="toggle-info">
+                <span class="toggle-title">Offer Notifications</span>
+                <span class="toggle-description">Get notified when someone makes an offer on your NFTs</span>
+              </div>
+              <div class="toggle-container">
+                <input type="checkbox" class="toggle-input" id="notify-offers" checked>
+                <label for="notify-offers" class="toggle-label">
+                  <span class="toggle-switch"></span>
+                </label>
+              </div>
+            </div>
+            <div class="toggle-group">
+              <div class="toggle-info">
+                <span class="toggle-title">Price Alerts</span>
+                <span class="toggle-description">Get notified about price changes for followed collections</span>
+              </div>
+              <div class="toggle-container">
+                <input type="checkbox" class="toggle-input" id="notify-prices">
+                <label for="notify-prices" class="toggle-label">
+                  <span class="toggle-switch"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wallet & Security -->
+        <div class="settings-section">
+          <h3>Wallet & Security</h3>
+          <div class="wallet-info">
+            <div class="wallet-connected">
+              <div class="wallet-icon">
+                <i data-lucide="wallet" style="width: 24px; height: 24px;"></i>
+              </div>
+              <div class="wallet-details">
+                <span class="wallet-name">MetaMask</span>
+                <span class="wallet-address">0x1234...abcd</span>
+              </div>
+              <button class="btn btn-outline btn-sm">Disconnect</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="settings-section danger-zone">
+          <h3>Danger Zone</h3>
+          <div class="danger-actions">
+            <div class="danger-item">
+              <div class="danger-info">
+                <span class="danger-title">Revoke All Approvals</span>
+                <span class="danger-description">Remove all smart contract approvals for your wallet</span>
+              </div>
+              <button class="btn btn-danger">
+                <i data-lucide="shield-x" style="width: 16px; height: 16px;"></i>
+                Revoke Approvals
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>CryptoVault</h4>
+      <p style="color: var(--text-gray);">The premier NFT marketplace on Ethereum.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Marketplace</h4>
+      <ul class="footer-links">
+        <li><a href="#">All NFTs</a></li>
+        <li><a href="#">Art</a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Gaming</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 CryptoVault. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Edit Listing Modal -->
+<div class="modal-overlay hidden" id="edit-listing-modal">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Listing</h3>
+      <button class="modal-close" id="close-edit-modal">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="edit-form">
+        <div class="form-group">
+          <label for="edit-price" class="form-label">Price</label>
+          <div class="input-group">
+            <input type="number" id="edit-price" class="form-input" placeholder="0.0" min="0" step="0.01" />
+            <span class="input-suffix">ETH</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="edit-type" class="form-label">Listing Type</label>
+          <select id="edit-type" class="form-select">
+            <option value="fixed">Fixed Price</option>
+            <option value="auction">Auction</option>
+          </select>
+        </div>
+      </div>
+      <div class="edit-actions">
+        <button class="btn btn-primary w-full" id="save-listing">Save Changes</button>
+        <button class="btn btn-outline w-full" id="cancel-edit">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Sample data
+const ownedNFTs = [
+  {
+    id: 1,
+    title: "Cosmic Dreams #001",
+    creator: "@ArtistCrypto",
+    price: "2.5",
+    collection: "cosmic-dreams",
+    image: "https://picsum.photos/300/300?random=1"
+  },
+  {
+    id: 2,
+    title: "Digital Genesis #42",
+    creator: "@PixelMaster",
+    price: "1.8",
+    collection: "digital-genesis",
+    image: "https://picsum.photos/300/300?random=2"
+  },
+  {
+    id: 3,
+    title: "Neon Metropolis #17",
+    creator: "@CyberArt",
+    price: "3.2",
+    collection: "neon-metropolis",
+    image: "https://picsum.photos/300/300?random=3"
+  },
+  {
+    id: 4,
+    title: "Cosmic Dreams #087",
+    creator: "@ArtistCrypto",
+    price: "2.1",
+    collection: "cosmic-dreams",
+    image: "https://picsum.photos/300/300?random=4"
+  },
+  {
+    id: 5,
+    title: "Digital Genesis #155",
+    creator: "@PixelMaster",
+    price: "1.9",
+    collection: "digital-genesis",
+    image: "https://picsum.photos/300/300?random=5"
+  },
+  {
+    id: 6,
+    title: "Neon Metropolis #203",
+    creator: "@CyberArt",
+    price: "2.8",
+    collection: "neon-metropolis",
+    image: "https://picsum.photos/300/300?random=6"
+  }
+];
+
+const createdNFTs = [
+  {
+    id: 101,
+    title: "My First Creation",
+    creator: "@CryptoCollector",
+    price: "0.5",
+    status: "listed",
+    image: "https://picsum.photos/300/300?random=101"
+  },
+  {
+    id: 102,
+    title: "Abstract Vision #1",
+    creator: "@CryptoCollector", 
+    price: "1.2",
+    status: "sold",
+    image: "https://picsum.photos/300/300?random=102"
+  },
+  {
+    id: 103,
+    title: "Digital Landscape",
+    creator: "@CryptoCollector",
+    price: "0.8",
+    status: "listed",
+    image: "https://picsum.photos/300/300?random=103"
+  }
+];
+
+const activities = [
+  {
+    id: 1,
+    type: "purchase",
+    title: "Purchased Cosmic Dreams #001",
+    price: "2.5 ETH",
+    time: "2 hours ago",
+    icon: "shopping-cart"
+  },
+  {
+    id: 2,
+    type: "listing",
+    title: "Listed My First Creation",
+    price: "0.5 ETH",
+    time: "1 day ago",
+    icon: "tag"
+  },
+  {
+    id: 3,
+    type: "sale",
+    title: "Sold Abstract Vision #1",
+    price: "1.2 ETH",
+    time: "3 days ago",
+    icon: "dollar-sign"
+  },
+  {
+    id: 4,
+    type: "offer",
+    title: "Received offer on Digital Landscape",
+    price: "0.7 ETH",
+    time: "5 days ago",
+    icon: "hand-heart"
+  },
+  {
+    id: 5,
+    type: "purchase",
+    title: "Purchased Digital Genesis #42",
+    price: "1.8 ETH",
+    time: "1 week ago",
+    icon: "shopping-cart"
+  }
+];
+
+// Tab functionality
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const tabName = button.getAttribute('data-tab');
+    
+    // Remove active class from all tabs and contents
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    tabContents.forEach(content => content.classList.remove('active'));
+    
+    // Add active class to clicked tab and corresponding content
+    button.classList.add('active');
+    document.getElementById(`${tabName}-content`).classList.add('active');
+    
+    // Load content based on tab
+    loadTabContent(tabName);
+  });
+});
+
+// Load content for different tabs
+function loadTabContent(tabName) {
+  switch(tabName) {
+    case 'owned':
+      loadOwnedNFTs();
+      break;
+    case 'created':
+      loadCreatedNFTs();
+      break;
+    case 'activity':
+      loadActivityFeed();
+      break;
+    default:
+      break;
+  }
+}
+
+// Load owned NFTs
+function loadOwnedNFTs() {
+  const container = document.getElementById('owned-nfts');
+  const selectedCollection = document.getElementById('collection-filter').value;
+  
+  let filteredNFTs = ownedNFTs;
+  if (selectedCollection !== 'all') {
+    filteredNFTs = ownedNFTs.filter(nft => nft.collection === selectedCollection);
+  }
+  
+  container.innerHTML = filteredNFTs.map(nft => `
+    <div class="nft-card" onclick="window.location.href='nft-detail.html'" style="cursor: pointer;">
+      <div class="nft-image">
+        <img src="${nft.image}" alt="${nft.title}" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="nft-card-body">
+        <h3 class="nft-title">${nft.title}</h3>
+        <div class="nft-creator">
+          <div class="nft-creator-avatar"></div>
+          <span>by ${nft.creator}</span>
+        </div>
+        <div class="nft-footer">
+          <span class="nft-price">${nft.price} ETH</span>
+          <span class="nft-status">Owned</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Load created NFTs
+function loadCreatedNFTs() {
+  const container = document.getElementById('created-nfts');
+  
+  container.innerHTML = createdNFTs.map(nft => `
+    <div class="nft-card">
+      <div class="nft-image">
+        <img src="${nft.image}" alt="${nft.title}" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="nft-card-body">
+        <h3 class="nft-title">${nft.title}</h3>
+        <div class="nft-creator">
+          <div class="nft-creator-avatar"></div>
+          <span>by ${nft.creator}</span>
+        </div>
+        <div class="nft-footer">
+          <span class="nft-price">${nft.price} ETH</span>
+          <div class="nft-actions">
+            <button class="btn btn-sm btn-outline edit-listing-btn" data-id="${nft.id}">
+              <i data-lucide="edit-2" style="width: 14px; height: 14px;"></i>
+              Edit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  
+  // Re-initialize icons
+  lucide.createIcons();
+  
+  // Add edit listing event listeners
+  document.querySelectorAll('.edit-listing-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openEditModal(btn.getAttribute('data-id'));
+    });
+  });
+}
+
+// Load activity feed
+function loadActivityFeed() {
+  const container = document.getElementById('activity-timeline');
+  
+  container.innerHTML = activities.map(activity => `
+    <div class="activity-item">
+      <div class="activity-icon">
+        <i data-lucide="${activity.icon}" style="width: 20px; height: 20px;"></i>
+      </div>
+      <div class="activity-content">
+        <div class="activity-main">
+          <span class="activity-title">${activity.title}</span>
+          <span class="activity-price">${activity.price}</span>
+        </div>
+        <span class="activity-time">${activity.time}</span>
+      </div>
+    </div>
+  `).join('');
+  
+  // Re-initialize icons
+  lucide.createIcons();
+}
+
+// Collection filter
+document.getElementById('collection-filter').addEventListener('change', () => {
+  loadOwnedNFTs();
+});
+
+// Activity filters
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    // Filter activities based on type
+    loadActivityFeed();
+  });
+});
+
+// Edit listing modal
+function openEditModal(nftId) {
+  document.getElementById('edit-listing-modal').classList.remove('hidden');
+}
+
+document.getElementById('close-edit-modal').addEventListener('click', () => {
+  document.getElementById('edit-listing-modal').classList.add('hidden');
+});
+
+document.getElementById('cancel-edit').addEventListener('click', () => {
+  document.getElementById('edit-listing-modal').classList.add('hidden');
+});
+
+document.getElementById('save-listing').addEventListener('click', () => {
+  alert('Listing updated successfully!');
+  document.getElementById('edit-listing-modal').classList.add('hidden');
+});
+
+// Stat item click to switch tabs
+document.querySelectorAll('.stat-item[data-tab]').forEach(stat => {
+  stat.addEventListener('click', () => {
+    const tabName = stat.getAttribute('data-tab');
+    const tabButton = document.querySelector(`[data-tab="${tabName}"]`);
+    if (tabButton) {
+      tabButton.click();
+    }
+  });
+});
+
+// Mobile menu functionality
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Initialize with owned tab
+loadTabContent('owned');
+</script>
+
+</body>
+</html>

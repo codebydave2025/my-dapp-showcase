@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creators | CryptoVault NFT Marketplace</title>
+  <meta name="description" content="Discover talented NFT creators on CryptoVault. Explore featured artists, trending collections, and join our creator community.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dapp-styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header-container">
+    <a href="index.html" class="logo">CryptoVault</a>
+    <div class="search-container">
+      <i data-lucide="search" class="search-icon"></i>
+      <input type="text" class="search-input" placeholder="Search collections, NFTs, or creators..." />
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="creators.html" class="active">Creators</a></li>
+      <li><a href="about.html">About</a></li>
+    </nav>
+    <button class="wallet-connect wallet-connected" id="wallet-btn">
+      <i data-lucide="wallet" style="width: 20px; height: 20px;"></i>
+      <span>0x123...abc</span>
+    </button>
+    <div class="mobile-menu-btn" id="mobile-menu-btn">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Creators Main Content -->
+<main class="creators-container">
+  
+  <!-- Hero Section -->
+  <section class="creators-hero">
+    <div class="creators-hero-container">
+      <div class="hero-content">
+        <h1>Join the Creator Economy</h1>
+        <p class="hero-subtitle">Discover amazing NFT creators, explore unique collections, and start your own creative journey on CryptoVault</p>
+        <div class="hero-actions">
+          <a href="create.html" class="btn btn-primary">
+            <i data-lucide="plus-circle" style="width: 20px; height: 20px;"></i>
+            Start Creating
+          </a>
+          <a href="#featured-creators" class="btn btn-outline">
+            <i data-lucide="users" style="width: 20px; height: 20px;"></i>
+            Discover Creators
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="creator-showcase">
+          <div class="showcase-item">
+            <div class="showcase-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="palette" style="width: 24px; height: 24px;"></i>
+            </div>
+            <span>Digital Artists</span>
+          </div>
+          <div class="showcase-item">
+            <div class="showcase-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="music" style="width: 24px; height: 24px;"></i>
+            </div>
+            <span>Musicians</span>
+          </div>
+          <div class="showcase-item">
+            <div class="showcase-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="camera" style="width: 24px; height: 24px;"></i>
+            </div>
+            <span>Photographers</span>
+          </div>
+          <div class="showcase-item">
+            <div class="showcase-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="gamepad-2" style="width: 24px; height: 24px;"></i>
+            </div>
+            <span>Game Developers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creator Stats -->
+  <section class="creator-stats">
+    <div class="content-container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i data-lucide="users" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Active Creators</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i data-lucide="image" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">10K+</div>
+            <div class="stat-label">NFTs Created</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i data-lucide="dollar-sign" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">$2M+</div>
+            <div class="stat-label">Creator Earnings</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i data-lucide="trending-up" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Creators -->
+  <section class="featured-creators" id="featured-creators">
+    <div class="content-container">
+      <div class="section-header">
+        <h2>Featured Creators</h2>
+        <p>Meet some of the most talented artists in our community</p>
+      </div>
+      
+      <div class="creators-grid">
+        <div class="creator-card">
+          <div class="creator-banner">
+            <img src="https://picsum.photos/400/200?random=1" alt="Creator banner" onerror="this.style.background='linear-gradient(135deg, #00D4FF, #A100FF)'; this.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:white;font-weight:600;&quot;>ArtistCrypto</div>';">
+          </div>
+          <div class="creator-info">
+            <div class="creator-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="user" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="creator-details">
+              <h3>@ArtistCrypto</h3>
+              <p>Digital surrealist creating dreamlike NFT experiences</p>
+              <div class="creator-stats">
+                <span>127 NFTs</span>
+                <span>2.5K Followers</span>
+                <span>15.2 ETH Volume</span>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm">Follow</button>
+          </div>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-banner">
+            <img src="https://picsum.photos/400/200?random=2" alt="Creator banner" onerror="this.style.background='linear-gradient(135deg, #A100FF, #00D4FF)'; this.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:white;font-weight:600;&quot;>PixelMaster</div>';">
+          </div>
+          <div class="creator-info">
+            <div class="creator-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="user" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="creator-details">
+              <h3>@PixelMaster</h3>
+              <p>Retro pixel art with modern blockchain technology</p>
+              <div class="creator-stats">
+                <span>89 NFTs</span>
+                <span>1.8K Followers</span>
+                <span>8.7 ETH Volume</span>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm">Follow</button>
+          </div>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-banner">
+            <img src="https://picsum.photos/400/200?random=3" alt="Creator banner" onerror="this.style.background='linear-gradient(135deg, #00D4FF, #FF6B6B)'; this.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:white;font-weight:600;&quot;>CyberArt</div>';">
+          </div>
+          <div class="creator-info">
+            <div class="creator-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="user" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="creator-details">
+              <h3>@CyberArt</h3>
+              <p>Cyberpunk aesthetics meets blockchain innovation</p>
+              <div class="creator-stats">
+                <span>203 NFTs</span>
+                <span>4.1K Followers</span>
+                <span>32.4 ETH Volume</span>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm">Follow</button>
+          </div>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-banner">
+            <img src="https://picsum.photos/400/200?random=4" alt="Creator banner" onerror="this.style.background='linear-gradient(135deg, #A100FF, #FFD93D)'; this.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:white;font-weight:600;&quot;>NeonDreams</div>';">
+          </div>
+          <div class="creator-info">
+            <div class="creator-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="user" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="creator-details">
+              <h3>@NeonDreams</h3>
+              <p>Abstract neon art exploring digital consciousness</p>
+              <div class="creator-stats">
+                <span>156 NFTs</span>
+                <span>3.2K Followers</span>
+                <span>18.9 ETH Volume</span>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm">Follow</button>
+          </div>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-banner">
+            <img src="https://picsum.photos/400/200?random=5" alt="Creator banner" onerror="this.style.background='linear-gradient(135deg, #FF6B6B, #00D4FF)'; this.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:white;font-weight:600;&quot;>CosmicWave</div>';">
+          </div>
+          <div class="creator-info">
+            <div class="creator-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="user" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="creator-details">
+              <h3>@CosmicWave</h3>
+              <p>Space-inspired digital art and cosmic landscapes</p>
+              <div class="creator-stats">
+                <span>78 NFTs</span>
+                <span>1.5K Followers</span>
+                <span>11.3 ETH Volume</span>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm">Follow</button>
+          </div>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-banner">
+            <img src="https://picsum.photos/400/200?random=6" alt="Creator banner" onerror="this.style.background='linear-gradient(135deg, #FFD93D, #A100FF)'; this.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;color:white;font-weight:600;&quot;>QuantumCode</div>';">
+          </div>
+          <div class="creator-info">
+            <div class="creator-avatar">
+              <div class="avatar-gradient"></div>
+              <i data-lucide="user" style="width: 24px; height: 24px;"></i>
+            </div>
+            <div class="creator-details">
+              <h3>@QuantumCode</h3>
+              <p>Generative art through algorithmic creativity</p>
+              <div class="creator-stats">
+                <span>245 NFTs</span>
+                <span>5.7K Followers</span>
+                <span>42.1 ETH Volume</span>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm">Follow</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creator Benefits -->
+  <section class="creator-benefits">
+    <div class="content-container">
+      <div class="section-header">
+        <h2>Why Choose CryptoVault?</h2>
+        <p>Everything you need to succeed as an NFT creator</p>
+      </div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i data-lucide="percent" style="width: 40px; height: 40px;"></i>
+          </div>
+          <h3>Low Fees</h3>
+          <p>Only 2.5% marketplace fee. Keep more of your earnings with our creator-friendly pricing structure.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i data-lucide="zap" style="width: 40px; height: 40px;"></i>
+          </div>
+          <h3>Fast Minting</h3>
+          <p>Mint your NFTs in seconds with our optimized smart contracts and IPFS integration.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i data-lucide="repeat" style="width: 40px; height: 40px;"></i>
+          </div>
+          <h3>Automatic Royalties</h3>
+          <p>Earn 5% royalties on every resale automatically distributed to your wallet.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i data-lucide="trending-up" style="width: 40px; height: 40px;"></i>
+          </div>
+          <h3>Marketing Support</h3>
+          <p>Get featured on our homepage, social media, and newsletter to reach more collectors.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i data-lucide="shield" style="width: 40px; height: 40px;"></i>
+          </div>
+          <h3>Secure Platform</h3>
+          <p>Your artwork is protected with enterprise-grade security and decentralized storage.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i data-lucide="users" style="width: 40px; height: 40px;"></i>
+          </div>
+          <h3>Community</h3>
+          <p>Join a vibrant community of creators and collectors who support each other's success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creator Resources -->
+  <section class="creator-resources">
+    <div class="content-container">
+      <div class="section-header">
+        <h2>Creator Resources</h2>
+        <p>Everything you need to start and grow your NFT journey</p>
+      </div>
+      
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i data-lucide="book-open" style="width: 32px; height: 32px;"></i>
+          </div>
+          <h4>Creator Guide</h4>
+          <p>Complete guide to creating, minting, and selling NFTs on CryptoVault</p>
+          <a href="#" class="resource-link">Read Guide <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i data-lucide="video" style="width: 32px; height: 32px;"></i>
+          </div>
+          <h4>Video Tutorials</h4>
+          <p>Step-by-step video tutorials covering all aspects of NFT creation</p>
+          <a href="#" class="resource-link">Watch Videos <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i data-lucide="message-circle" style="width: 32px; height: 32px;"></i>
+          </div>
+          <h4>Creator Discord</h4>
+          <p>Join our exclusive Discord community for creators to share tips and collaborate</p>
+          <a href="#" class="resource-link">Join Discord <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-icon">
+            <i data-lucide="headphones" style="width: 32px; height: 32px;"></i>
+          </div>
+          <h4>Creator Support</h4>
+          <p>Get personalized support from our creator success team</p>
+          <a href="#" class="resource-link">Get Support <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="content-container">
+      <div class="cta-content">
+        <h2>Ready to Start Creating?</h2>
+        <p>Join thousands of creators who are building their NFT empire on CryptoVault. Start minting your first NFT today.</p>
+        <div class="cta-actions">
+          <a href="create.html" class="btn btn-primary btn-large">
+            <i data-lucide="plus-circle" style="width: 20px; height: 20px;"></i>
+            Create Your First NFT
+          </a>
+          <a href="#" class="btn btn-outline btn-large">
+            <i data-lucide="download" style="width: 20px; height: 20px;"></i>
+            Download Creator Kit
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>CryptoVault</h4>
+      <p style="color: var(--text-gray);">The premier NFT marketplace on Ethereum.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Marketplace</h4>
+      <ul class="footer-links">
+        <li><a href="marketplace.html">All NFTs</a></li>
+        <li><a href="#">Art</a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Gaming</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Resources</h4>
+      <ul class="footer-links">
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Platform Status</a></li>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">Gas Tracker</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="creators.html">Creators</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 CryptoVault. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Mobile menu functionality
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Follow button functionality
+document.querySelectorAll('.creator-card .btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (btn.textContent.trim() === 'Follow') {
+      btn.textContent = 'Following';
+      btn.classList.add('following');
+    } else {
+      btn.textContent = 'Follow';
+      btn.classList.remove('following');
+    }
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Animation on scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-in');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.creator-card, .benefit-card, .resource-card, .stat-card').forEach(el => {
+  observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>

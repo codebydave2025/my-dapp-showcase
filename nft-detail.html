@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Dreams #001 - NFT Details | CryptoVault</title>
+  <meta name="description" content="View details, place bids, and purchase Cosmic Dreams #001 NFT on the premier marketplace.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dapp-styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<!-- Header - Fixed top nav bar (height: 64px) -->
+<header class="header" id="header">
+  <div class="header-container">
+    <a href="index.html" class="logo">CryptoVault</a>
+    
+    <div class="search-container">
+      <i data-lucide="search" class="search-icon"></i>
+      <input type="text" class="search-input" placeholder="Search collections, NFTs, or creators..." />
+    </div>
+    
+    <nav class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="about.html">About</a></li>
+    </nav>
+    
+    <button class="wallet-connect wallet-connected" id="wallet-btn">
+      <i data-lucide="wallet" style="width: 20px; height: 20px;"></i>
+      <span>0x123...abc</span>
+    </button>
+    
+    <div class="mobile-menu-btn" id="mobile-menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<!-- NFT Detail Screen Main Content -->
+<main class="nft-detail-container">
+  
+  <!-- Hero Image Section (Height: 60vh) -->
+  <section class="nft-hero-section">
+    <div class="nft-hero-overlay">
+      <button class="back-button" id="back-btn">
+        <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i>
+        <span>Back</span>
+      </button>
+      <div class="hero-actions">
+        <button class="action-icon-btn" id="share-btn">
+          <i data-lucide="share-2" style="width: 20px; height: 20px;"></i>
+        </button>
+        <button class="action-icon-btn" id="external-link-btn">
+          <i data-lucide="external-link" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+    </div>
+    <div class="nft-hero-image">
+      <img src="https://picsum.photos/800/600?random=1&blur=1" alt="Cosmic Dreams #001 by ArtistCrypto" id="nft-image" />
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="nft-content-section">
+    <div class="nft-content-container">
+      
+      <!-- Left Column - NFT Information -->
+      <div class="nft-info-column">
+        <div class="nft-header">
+          <h1 class="nft-title">Cosmic Dreams #001</h1>
+          <div class="creator-badge">
+            <div class="creator-avatar"></div>
+            <span>by <a href="#" class="creator-link">@ArtistCrypto</a></span>
+          </div>
+        </div>
+
+        <div class="nft-description">
+          <h3>Description</h3>
+          <p>A mesmerizing journey through the cosmos, this unique digital artwork captures the ethereal beauty of stellar formations and cosmic phenomena. Created using advanced algorithmic techniques, each stroke represents the infinite possibilities of space and time.</p>
+        </div>
+
+        <div class="nft-properties">
+          <h3>Properties</h3>
+          <div class="properties-grid">
+            <div class="property-item">
+              <div class="property-icon">
+                <i data-lucide="palette" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div class="property-content">
+                <span class="property-label">Background</span>
+                <span class="property-value">Cosmic Blue</span>
+              </div>
+              <span class="property-rarity">12% rare</span>
+            </div>
+            <div class="property-item">
+              <div class="property-icon">
+                <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div class="property-content">
+                <span class="property-label">Effect</span>
+                <span class="property-value">Starlight</span>
+              </div>
+              <span class="property-rarity">8% rare</span>
+            </div>
+            <div class="property-item">
+              <div class="property-icon">
+                <i data-lucide="eye" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div class="property-content">
+                <span class="property-label">Vision</span>
+                <span class="property-value">Cosmic Sight</span>
+              </div>
+              <span class="property-rarity">5% rare</span>
+            </div>
+            <div class="property-item">
+              <div class="property-icon">
+                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div class="property-content">
+                <span class="property-label">Energy</span>
+                <span class="property-value">Plasma</span>
+              </div>
+              <span class="property-rarity">15% rare</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="nft-details">
+          <h3>Details</h3>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="detail-label">Contract Address</span>
+              <span class="detail-value">
+                <a href="#" class="contract-link">0x495f...7b5e</a>
+                <i data-lucide="copy" style="width: 14px; height: 14px; margin-left: 8px; cursor: pointer;"></i>
+              </span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Token ID</span>
+              <span class="detail-value">1</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Blockchain</span>
+              <span class="detail-value">
+                <div class="blockchain-badge">
+                  <i data-lucide="hexagon" style="width: 14px; height: 14px;"></i>
+                  Ethereum
+                </div>
+              </span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">Token Standard</span>
+              <span class="detail-value">ERC-721</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column - Purchase/Action -->
+      <div class="nft-action-column">
+        <div class="nft-price-card">
+          <div class="price-header">
+            <h3>Current Price</h3>
+            <div class="price-main">
+              <span class="price-eth">2.5 ETH</span>
+              <span class="price-usd">$4,750 USD</span>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary btn-lg w-full" id="buy-now-btn">
+              <i data-lucide="shopping-cart" style="width: 20px; height: 20px;"></i>
+              Buy Now
+            </button>
+            <button class="btn btn-secondary btn-lg w-full" id="make-offer-btn">
+              <i data-lucide="hand-heart" style="width: 20px; height: 20px;"></i>
+              Make Offer
+            </button>
+            <button class="btn btn-outline btn-lg w-full" id="watchlist-btn">
+              <i data-lucide="heart" style="width: 20px; height: 20px;"></i>
+              Add to Watchlist
+            </button>
+          </div>
+        </div>
+
+        <div class="owner-info-card">
+          <h3>Owner</h3>
+          <div class="owner-profile">
+            <div class="owner-avatar"></div>
+            <div class="owner-details">
+              <span class="owner-name">@CryptoCollector</span>
+              <span class="owner-stats">127 NFTs owned</span>
+            </div>
+            <button class="btn btn-sm btn-outline">Follow</button>
+          </div>
+        </div>
+
+        <div class="bid-history-card">
+          <div class="bid-header">
+            <h3>Bid History</h3>
+            <button class="toggle-history" id="toggle-history">
+              <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+            </button>
+          </div>
+          <div class="bid-history-content" id="bid-history">
+            <div class="bid-item">
+              <div class="bidder-info">
+                <div class="bidder-avatar"></div>
+                <span class="bidder-name">@BidderOne</span>
+              </div>
+              <div class="bid-details">
+                <span class="bid-amount">2.3 ETH</span>
+                <span class="bid-time">2 hours ago</span>
+              </div>
+            </div>
+            <div class="bid-item">
+              <div class="bidder-info">
+                <div class="bidder-avatar"></div>
+                <span class="bidder-name">@CryptoWhale</span>
+              </div>
+              <div class="bid-details">
+                <span class="bid-amount">2.1 ETH</span>
+                <span class="bid-time">1 day ago</span>
+              </div>
+            </div>
+            <div class="bid-item">
+              <div class="bidder-info">
+                <div class="bidder-avatar"></div>
+                <span class="bidder-name">@NFTLover</span>
+              </div>
+              <div class="bid-details">
+                <span class="bid-amount">1.8 ETH</span>
+                <span class="bid-time">3 days ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Similar NFTs Section -->
+  <section class="similar-nfts-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>You Might Like</h2>
+        <p class="section-subtitle">Discover similar NFTs from this collection and artist</p>
+      </div>
+      
+      <div class="nft-carousel">
+        <button class="carousel-btn carousel-prev" id="carousel-prev">
+          <i data-lucide="chevron-left" style="width: 20px; height: 20px;"></i>
+        </button>
+        
+        <div class="carousel-container" id="carousel-container">
+          <div class="nft-card">
+            <div class="nft-image">
+              <img src="https://picsum.photos/300/300?random=2" alt="Digital Genesis" />
+            </div>
+            <div class="nft-card-body">
+              <h3 class="nft-title">Digital Genesis</h3>
+              <div class="nft-creator">
+                <div class="nft-creator-avatar"></div>
+                <span>by @PixelMaster</span>
+              </div>
+              <div class="nft-footer">
+                <span class="nft-price">1.8 ETH</span>
+                <span class="nft-rarity">Epic</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="nft-card">
+            <div class="nft-image">
+              <img src="https://picsum.photos/300/300?random=3" alt="Neon Metropolis" />
+            </div>
+            <div class="nft-card-body">
+              <h3 class="nft-title">Neon Metropolis</h3>
+              <div class="nft-creator">
+                <div class="nft-creator-avatar"></div>
+                <span>by @CyberArt</span>
+              </div>
+              <div class="nft-footer">
+                <span class="nft-price">3.2 ETH</span>
+                <span class="nft-rarity">Legendary</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="nft-card">
+            <div class="nft-image">
+              <img src="https://picsum.photos/300/300?random=4" alt="Abstract Realm" />
+            </div>
+            <div class="nft-card-body">
+              <h3 class="nft-title">Abstract Realm #42</h3>
+              <div class="nft-creator">
+                <div class="nft-creator-avatar"></div>
+                <span>by @ModernMuse</span>
+              </div>
+              <div class="nft-footer">
+                <span class="nft-price">0.9 ETH</span>
+                <span class="nft-rarity">Common</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="nft-card">
+            <div class="nft-image">
+              <img src="https://picsum.photos/300/300?random=5" alt="Ethereal Visions" />
+            </div>
+            <div class="nft-card-body">
+              <h3 class="nft-title">Ethereal Visions</h3>
+              <div class="nft-creator">
+                <div class="nft-creator-avatar"></div>
+                <span>by @DreamWeaver</span>
+              </div>
+              <div class="nft-footer">
+                <span class="nft-price">1.5 ETH</span>
+                <span class="nft-rarity">Rare</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="nft-card">
+            <div class="nft-image">
+              <img src="https://picsum.photos/300/300?random=6" alt="Quantum Pulse" />
+            </div>
+            <div class="nft-card-body">
+              <h3 class="nft-title">Quantum Pulse</h3>
+              <div class="nft-creator">
+                <div class="nft-creator-avatar"></div>
+                <span>by @TechnoArt</span>
+              </div>
+              <div class="nft-footer">
+                <span class="nft-price">4.2 ETH</span>
+                <span class="nft-rarity">Legendary</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="nft-card">
+            <div class="nft-image">
+              <img src="https://picsum.photos/300/300?random=7" alt="Space Odyssey" />
+            </div>
+            <div class="nft-card-body">
+              <h3 class="nft-title">Space Odyssey</h3>
+              <div class="nft-creator">
+                <div class="nft-creator-avatar"></div>
+                <span>by @SpaceArt</span>
+              </div>
+              <div class="nft-footer">
+                <span class="nft-price">3.7 ETH</span>
+                <span class="nft-rarity">Epic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button class="carousel-btn carousel-next" id="carousel-next">
+          <i data-lucide="chevron-right" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>CryptoVault</h4>
+      <p style="color: var(--text-gray);">The premier NFT marketplace on Ethereum.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Marketplace</h4>
+      <ul class="footer-links">
+        <li><a href="#">All NFTs</a></li>
+        <li><a href="#">Art</a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Gaming</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 CryptoVault. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Purchase Confirmation Modal -->
+<div class="modal-overlay hidden" id="purchase-modal">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <h3 class="modal-title">Confirm Purchase</h3>
+      <button class="modal-close" id="close-purchase-modal">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="purchase-summary">
+        <div class="purchase-item">
+          <img src="https://picsum.photos/300/300?random=1&blur=1" alt="Cosmic Dreams #001" class="purchase-image" />
+          <div class="purchase-details">
+            <h4>Cosmic Dreams #001</h4>
+            <p>by @ArtistCrypto</p>
+          </div>
+        </div>
+        <div class="purchase-pricing">
+          <div class="pricing-row">
+            <span>Item Price</span>
+            <span>2.5 ETH</span>
+          </div>
+          <div class="pricing-row">
+            <span>Gas Fee</span>
+            <span>0.003 ETH</span>
+          </div>
+          <hr class="pricing-divider">
+          <div class="pricing-row total">
+            <span>Total</span>
+            <span>2.503 ETH</span>
+          </div>
+        </div>
+      </div>
+      <div class="purchase-actions">
+        <button class="btn btn-primary w-full" id="confirm-purchase">
+          <i data-lucide="credit-card" style="width: 20px; height: 20px;"></i>
+          Confirm Purchase
+        </button>
+        <button class="btn btn-outline w-full" id="cancel-purchase">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Make Offer Modal -->
+<div class="modal-overlay hidden" id="offer-modal">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <h3 class="modal-title">Make an Offer</h3>
+      <button class="modal-close" id="close-offer-modal">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="offer-form">
+        <div class="form-group">
+          <label for="offer-amount" class="form-label">Offer Amount</label>
+          <div class="input-group">
+            <input type="number" id="offer-amount" class="form-input" placeholder="0.0" min="0" step="0.01" />
+            <span class="input-suffix">ETH</span>
+          </div>
+          <p class="form-help">Current price: 2.5 ETH</p>
+        </div>
+        <div class="form-group">
+          <label for="offer-duration" class="form-label">Offer Duration</label>
+          <select id="offer-duration" class="form-select">
+            <option value="1">1 day</option>
+            <option value="3">3 days</option>
+            <option value="7">7 days</option>
+            <option value="30">30 days</option>
+          </select>
+        </div>
+        <div class="offer-summary">
+          <div class="summary-row">
+            <span>Your offer</span>
+            <span id="offer-display">0.0 ETH</span>
+          </div>
+          <div class="summary-row">
+            <span>Service fee (2.5%)</span>
+            <span id="service-fee">0.0 ETH</span>
+          </div>
+        </div>
+      </div>
+      <div class="offer-actions">
+        <button class="btn btn-primary w-full" id="submit-offer">
+          <i data-lucide="hand-heart" style="width: 20px; height: 20px;"></i>
+          Submit Offer
+        </button>
+        <button class="btn btn-outline w-full" id="cancel-offer">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Mobile menu functionality
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Back button functionality
+document.getElementById('back-btn').addEventListener('click', () => {
+  window.history.back();
+});
+
+// Share functionality
+document.getElementById('share-btn').addEventListener('click', () => {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Cosmic Dreams #001',
+      text: 'Check out this amazing NFT!',
+      url: window.location.href
+    });
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied to clipboard!');
+  }
+});
+
+// Bid history toggle
+document.getElementById('toggle-history').addEventListener('click', () => {
+  const historyContent = document.getElementById('bid-history');
+  const toggleIcon = document.querySelector('#toggle-history i');
+  
+  historyContent.classList.toggle('expanded');
+  if (historyContent.classList.contains('expanded')) {
+    toggleIcon.style.transform = 'rotate(180deg)';
+  } else {
+    toggleIcon.style.transform = 'rotate(0deg)';
+  }
+});
+
+// Carousel functionality
+let currentSlide = 0;
+const carouselContainer = document.getElementById('carousel-container');
+const cards = carouselContainer.children;
+const totalCards = cards.length;
+const cardsToShow = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 768 ? 3 : 1;
+
+function updateCarousel() {
+  const cardWidth = cards[0].offsetWidth + 24; // including gap
+  const translateX = -currentSlide * cardWidth;
+  carouselContainer.style.transform = `translateX(${translateX}px)`;
+}
+
+document.getElementById('carousel-prev').addEventListener('click', () => {
+  currentSlide = Math.max(0, currentSlide - 1);
+  updateCarousel();
+});
+
+document.getElementById('carousel-next').addEventListener('click', () => {
+  const maxSlide = Math.max(0, totalCards - cardsToShow);
+  currentSlide = Math.min(maxSlide, currentSlide + 1);
+  updateCarousel();
+});
+
+// Modal functionality
+function openModal(modalId) {
+  document.getElementById(modalId).classList.remove('hidden');
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).classList.add('hidden');
+}
+
+// Purchase modal
+document.getElementById('buy-now-btn').addEventListener('click', () => {
+  openModal('purchase-modal');
+});
+
+document.getElementById('close-purchase-modal').addEventListener('click', () => {
+  closeModal('purchase-modal');
+});
+
+document.getElementById('cancel-purchase').addEventListener('click', () => {
+  closeModal('purchase-modal');
+});
+
+document.getElementById('confirm-purchase').addEventListener('click', () => {
+  // Simulate blockchain transaction
+  alert('Transaction submitted! Check your wallet for confirmation.');
+  closeModal('purchase-modal');
+});
+
+// Offer modal
+document.getElementById('make-offer-btn').addEventListener('click', () => {
+  openModal('offer-modal');
+});
+
+document.getElementById('close-offer-modal').addEventListener('click', () => {
+  closeModal('offer-modal');
+});
+
+document.getElementById('cancel-offer').addEventListener('click', () => {
+  closeModal('offer-modal');
+});
+
+// Offer calculation
+document.getElementById('offer-amount').addEventListener('input', (e) => {
+  const amount = parseFloat(e.target.value) || 0;
+  const serviceFee = amount * 0.025; // 2.5%
+  
+  document.getElementById('offer-display').textContent = `${amount.toFixed(3)} ETH`;
+  document.getElementById('service-fee').textContent = `${serviceFee.toFixed(3)} ETH`;
+});
+
+document.getElementById('submit-offer').addEventListener('click', () => {
+  const amount = document.getElementById('offer-amount').value;
+  if (!amount || parseFloat(amount) <= 0) {
+    alert('Please enter a valid offer amount');
+    return;
+  }
+  alert('Offer submitted successfully!');
+  closeModal('offer-modal');
+});
+
+// Watchlist functionality
+document.getElementById('watchlist-btn').addEventListener('click', (e) => {
+  const button = e.currentTarget;
+  const icon = button.querySelector('i');
+  const text = button.querySelector('span') || button;
+  
+  if (button.classList.contains('watchlisted')) {
+    button.classList.remove('watchlisted');
+    icon.setAttribute('data-lucide', 'heart');
+    text.textContent = 'Add to Watchlist';
+  } else {
+    button.classList.add('watchlisted');
+    icon.setAttribute('data-lucide', 'heart');
+    text.textContent = 'Remove from Watchlist';
+    button.style.color = '#ff4757';
+  }
+  lucide.createIcons();
+});
+
+// Copy contract address
+document.addEventListener('click', (e) => {
+  if (e.target.closest('.contract-link')) {
+    e.preventDefault();
+    navigator.clipboard.writeText('0x495f947276749Ce646f68AC8c248420045cb7b5e');
+    alert('Contract address copied to clipboard!');
+  }
+});
+
+// Image zoom functionality
+document.getElementById('nft-image').addEventListener('click', () => {
+  const img = document.getElementById('nft-image');
+  img.classList.toggle('zoomed');
+});
+
+// Responsive carousel update
+window.addEventListener('resize', () => {
+  updateCarousel();
+});
+
+// Initialize
+updateCarousel();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+// Add the missing JavaScript completion:
+document.getElementById('back-to-details').addEventListener('click', () => showStep(2));
+document.getElementById('next-to-review').addEventListener('click', () => {
+  const listingType = document.querySelector('input[name="listing-type"]:checked').value;
+  if (listingType === 'fixed') {
+    const price = parseFloat(fixedPriceInput.value);
+    if (!price || price <= 0) { alert('Please enter a valid price'); fixedPriceInput.focus(); return; }
+    nftData.price = price;
+  }
+  updateReviewSummary(); showStep(4);
+});
+document.getElementById('back-to-pricing').addEventListener('click', () => showStep(3));
+
+function updateReviewSummary() {
+  nftData.name = document.getElementById('nft-name').value.trim();
+  nftData.description = document.getElementById('nft-description').value.trim();
+  nftData.collection = document.getElementById('nft-collection').value;
+  nftData.listingType = document.querySelector('input[name="listing-type"]:checked').value;
+  
+  nftData.properties = [];
+  document.querySelectorAll('.property-item').forEach(item => {
+    const name = item.querySelector('.property-name').value.trim();
+    const value = item.querySelector('.property-value').value.trim();
+    if (name && value) nftData.properties.push({name, value});
+  });
+  
+  const reviewImageContainer = document.getElementById('review-image-container');
+  if (uploadedFile && uploadedFile.type.startsWith('image/')) {
+    reviewImageContainer.innerHTML = `<img src="${previewImage.src}" alt="${nftData.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
+  }
+  
+  document.getElementById('review-name').textContent = nftData.name;
+  document.getElementById('review-collection').textContent = nftData.collection || 'No collection';
+  document.getElementById('review-price').textContent = `${nftData.price} ETH`;
+  document.getElementById('review-price-type').textContent = nftData.listingType === 'fixed' ? 'Fixed Price' : 'Auction';
+  
+  document.getElementById('summary-name').textContent = nftData.name;
+  document.getElementById('summary-description').textContent = nftData.description || 'No description';
+  document.getElementById('summary-collection').textContent = nftData.collection || 'No collection';
+  document.getElementById('summary-properties').textContent = nftData.properties.length ? `${nftData.properties.length} properties` : 'No properties';
+  document.getElementById('summary-listing-type').textContent = nftData.listingType === 'fixed' ? 'Fixed Price' : 'Timed Auction';
+  document.getElementById('summary-price').textContent = `${nftData.price} ETH`;
+  
+  const feePercentage = 0.075, youReceive = nftData.price * (1 - feePercentage);
+  document.getElementById('summary-receive').textContent = `${youReceive.toFixed(3)} ETH`;
+}
+
+document.getElementById('mint-and-list').addEventListener('click', () => {
+  document.getElementById('minting-modal').classList.remove('hidden');
+  simulateMintingProgress();
+});
+
+function simulateMintingProgress() {
+  const steps = ['upload', 'metadata', 'mint', 'list'];
+  let currentStepIndex = 0;
+  
+  function processStep() {
+    if (currentStepIndex > 0) {
+      const prevStep = document.getElementById(`progress-${steps[currentStepIndex - 1]}`);
+      prevStep.classList.add('completed');
+      prevStep.querySelector('.progress-status').textContent = 'Completed';
+    }
+    
+    if (currentStepIndex < steps.length) {
+      const currentStepEl = document.getElementById(`progress-${steps[currentStepIndex]}`);
+      currentStepEl.classList.add('active');
+      currentStepEl.querySelector('.progress-status').textContent = 'In progress...';
+      currentStepIndex++;
+      setTimeout(processStep, 2000);
+    } else {
+      setTimeout(() => {
+        document.querySelector('.minting-progress').classList.add('hidden');
+        document.getElementById('minting-success').classList.remove('hidden');
+      }, 1000);
+    }
+  }
+  processStep();
+}
+
+document.getElementById('view-nft').addEventListener('click', () => window.location.href = 'nft-detail.html');
+document.getElementById('create-another').addEventListener('click', () => window.location.reload());
+
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
+mobileMenuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace - Browse NFTs | CryptoVault</title>
+  <meta name="description" content="Browse and discover thousands of unique NFTs. Filter by price, rarity, chain, and more on the premier NFT marketplace.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dapp-styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<!-- Header - Fixed top nav bar (height: 64px) -->
+<header class="header" id="header">
+  <div class="header-container">
+    <a href="index.html" class="logo">CryptoVault</a>
+    
+    <div class="search-container">
+      <i data-lucide="search" class="search-icon"></i>
+      <input type="text" class="search-input" placeholder="Search collections, NFTs, or creators..." />
+    </div>
+    
+    <nav class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="marketplace.html" class="active">Marketplace</a></li>
+      <li><a href="creators.html">Creators</a></li>
+      <li><a href="about.html">About</a></li>
+    </nav>
+    
+    <button class="wallet-connect wallet-connected" id="wallet-btn">
+      <i data-lucide="wallet" style="width: 20px; height: 20px;"></i>
+      <span>0x123...abc</span>
+    </button>
+    
+    <div class="mobile-menu-btn" id="mobile-menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Filter Bar - Below global header (sticky, height: 80px) -->
+<section class="filter-bar" id="filter-bar">
+  <div class="filter-container">
+    <!-- Left: Sort dropdown -->
+    <div class="filter-group">
+      <label class="filter-label">Sort by</label>
+      <select class="filter-select" id="sort-select">
+        <option value="newest">Newest</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="trending">Trending</option>
+        <option value="ending-soon">Ending Soon</option>
+      </select>
+    </div>
+    
+    <!-- Center: Price range slider -->
+    <div class="filter-group price-range-group">
+      <label class="filter-label">Price Range (ETH)</label>
+      <div class="price-range-container">
+        <input type="number" class="price-input" id="min-price" placeholder="Min" min="0" step="0.1">
+        <div class="price-slider-container">
+          <input type="range" class="price-slider" id="price-range" min="0" max="10" step="0.1" value="10">
+          <div class="slider-track"></div>
+        </div>
+        <input type="number" class="price-input" id="max-price" placeholder="Max" min="0" step="0.1" value="10">
+      </div>
+    </div>
+    
+    <!-- Right: Toggle for "Owned by Me" -->
+    <div class="filter-group">
+      <label class="filter-label">Ownership</label>
+      <div class="toggle-container">
+        <input type="checkbox" class="toggle-input" id="owned-toggle">
+        <label for="owned-toggle" class="toggle-label">
+          <span class="toggle-switch"></span>
+          <span class="toggle-text">Owned by Me</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Mobile Filter Toggle -->
+    <button class="mobile-filter-btn" id="mobile-filter-btn">
+      <i data-lucide="filter" style="width: 20px; height: 20px;"></i>
+      Filters
+    </button>
+  </div>
+</section>
+
+<!-- Main Content Area -->
+<div class="marketplace-container">
+  <!-- Sidebar (Desktop): Filters -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Filters</h3>
+      <button class="clear-filters" id="clear-filters">Clear All</button>
+    </div>
+    
+    <!-- Chain Filter -->
+    <div class="filter-section">
+      <h4 class="filter-title">Blockchain</h4>
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="ethereum" checked>
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Ethereum</span>
+          <span class="item-count">(1,234)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="polygon">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Polygon</span>
+          <span class="item-count">(567)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="arbitrum">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Arbitrum</span>
+          <span class="item-count">(89)</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Rarity Filter -->
+    <div class="filter-section">
+      <h4 class="filter-title">Rarity</h4>
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="common">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Common</span>
+          <span class="item-count">(456)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="rare">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Rare</span>
+          <span class="item-count">(234)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="epic">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Epic</span>
+          <span class="item-count">(123)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="legendary">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Legendary</span>
+          <span class="item-count">(45)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="mythic">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Mythic</span>
+          <span class="item-count">(12)</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="filter-section">
+      <h4 class="filter-title">Category</h4>
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="art">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Art</span>
+          <span class="item-count">(789)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="music">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Music</span>
+          <span class="item-count">(234)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="gaming">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Gaming</span>
+          <span class="item-count">(456)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="photography">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Photography</span>
+          <span class="item-count">(345)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="collectibles">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Collectibles</span>
+          <span class="item-count">(567)</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Status Filter -->
+    <div class="filter-section">
+      <h4 class="filter-title">Status</h4>
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="buy-now">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">Buy Now</span>
+          <span class="item-count">(890)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="auction">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">On Auction</span>
+          <span class="item-count">(234)</span>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" class="filter-checkbox" value="new">
+          <span class="checkbox-custom"></span>
+          <span class="checkbox-text">New</span>
+          <span class="item-count">(123)</span>
+        </label>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Grid (Full width, min-height: 80vh) -->
+  <main class="marketplace-main">
+    <!-- Results Header -->
+    <div class="results-header">
+      <div class="results-info">
+        <h2>Browse NFTs</h2>
+        <p class="results-count" id="results-count">Showing 2,890 results</p>
+      </div>
+      <div class="view-options">
+        <button class="view-btn active" data-view="grid">
+          <i data-lucide="grid-3x3" style="width: 16px; height: 16px;"></i>
+        </button>
+        <button class="view-btn" data-view="list">
+          <i data-lucide="list" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- NFT Grid -->
+    <div class="nft-grid marketplace-grid" id="nft-grid">
+      <!-- NFT Cards will be dynamically loaded here -->
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-container" id="loading">
+      <div class="spinner"></div>
+      <p>Loading more NFTs...</p>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state hidden" id="empty-state">
+      <div class="empty-illustration">
+        <i data-lucide="search-x" style="width: 80px; height: 80px; color: var(--text-gray-dark); margin-bottom: 1rem;"></i>
+      </div>
+      <h3>No NFTs match your filters</h3>
+      <p>Try broadening your search criteria or clearing some filters to see more results.</p>
+      <button class="btn btn-secondary" id="clear-all-filters">Clear All Filters</button>
+    </div>
+  </main>
+</div>
+
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Sample NFT data for demonstration
+const sampleNFTs = [
+  {
+    id: 1,
+    title: "Cosmic Dreams #001",
+    creator: "@ArtistCrypto",
+    price: "2.5",
+    rarity: "rare",
+    category: "art",
+    chain: "ethereum",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #00D4FF, #A100FF)",
+    icon: "stars"
+  },
+  {
+    id: 2,
+    title: "Digital Genesis",
+    creator: "@PixelMaster",
+    price: "1.8",
+    rarity: "epic",
+    category: "art",
+    chain: "ethereum",
+    status: "auction",
+    gradient: "linear-gradient(135deg, #FF6B6B, #FFE66D)",
+    icon: "cpu"
+  },
+  {
+    id: 3,
+    title: "Neon Metropolis",
+    creator: "@CyberArt",
+    price: "3.2",
+    rarity: "legendary",
+    category: "art",
+    chain: "polygon",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #4ECDC4, #44A08D)",
+    icon: "building-2"
+  },
+  {
+    id: 4,
+    title: "Abstract Realm #42",
+    creator: "@ModernMuse",
+    price: "0.9",
+    rarity: "common",
+    category: "art",
+    chain: "ethereum",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #667eea, #764ba2)",
+    icon: "layers"
+  },
+  {
+    id: 5,
+    title: "Sonic Waves #5",
+    creator: "@BeatCreator",
+    price: "1.7",
+    rarity: "epic",
+    category: "music",
+    chain: "ethereum",
+    status: "auction",
+    gradient: "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+    icon: "music"
+  },
+  {
+    id: 6,
+    title: "Cyber Warrior #101",
+    creator: "@GameDev",
+    price: "0.8",
+    rarity: "common",
+    category: "gaming",
+    chain: "polygon",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #667eea, #764ba2)",
+    icon: "sword"
+  },
+  {
+    id: 7,
+    title: "Urban Landscape",
+    creator: "@PhotoPro",
+    price: "1.2",
+    rarity: "rare",
+    category: "photography",
+    chain: "ethereum",
+    status: "new",
+    gradient: "linear-gradient(135deg, #fad0c4, #ffd1ff)",
+    icon: "camera"
+  },
+  {
+    id: 8,
+    title: "Vintage Card #23",
+    creator: "@Collector",
+    price: "5.5",
+    rarity: "legendary",
+    category: "collectibles",
+    chain: "ethereum",
+    status: "auction",
+    gradient: "linear-gradient(135deg, #84fab0, #8fd3f4)",
+    icon: "image"
+  },
+  {
+    id: 9,
+    title: "Victory Moment",
+    creator: "@SportsFan",
+    price: "3.0",
+    rarity: "epic",
+    category: "collectibles",
+    chain: "arbitrum",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #ff8a80, #ffcdd2)",
+    icon: "trophy"
+  },
+  {
+    id: 10,
+    title: "Ethereal Visions",
+    creator: "@DreamWeaver",
+    price: "1.5",
+    rarity: "rare",
+    category: "art",
+    chain: "ethereum",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #f093fb, #f5576c)",
+    icon: "eye"
+  },
+  {
+    id: 11,
+    title: "Midnight Shadows",
+    creator: "@DarkArtist",
+    price: "2.8",
+    rarity: "epic",
+    category: "art",
+    chain: "ethereum",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #2C3E50, #34495E)",
+    icon: "moon"
+  },
+  {
+    id: 12,
+    title: "Golden Hour #12",
+    creator: "@SunsetMaster",
+    price: "1.2",
+    rarity: "common",
+    category: "photography",
+    chain: "polygon",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #F39C12, #E67E22)",
+    icon: "sun"
+  },
+  {
+    id: 13,
+    title: "Quantum Pulse",
+    creator: "@TechnoArt",
+    price: "4.2",
+    rarity: "legendary",
+    category: "art",
+    chain: "ethereum",
+    status: "auction",
+    gradient: "linear-gradient(135deg, #667eea, #764ba2)",
+    icon: "zap"
+  },
+  {
+    id: 14,
+    title: "Forest Serenity",
+    creator: "@NaturePhoto",
+    price: "0.7",
+    rarity: "common",
+    category: "photography",
+    chain: "polygon",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #56ab2f, #a8e6cf)",
+    icon: "tree"
+  },
+  {
+    id: 15,
+    title: "Retro Gaming #88",
+    creator: "@RetroGamer",
+    price: "1.9",
+    rarity: "rare",
+    category: "gaming",
+    chain: "ethereum",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #ff6b6b, #feca57)",
+    icon: "gamepad"
+  },
+  {
+    id: 16,
+    title: "Bass Drop #3",
+    creator: "@EDMProducer",
+    price: "2.1",
+    rarity: "rare",
+    category: "music",
+    chain: "ethereum",
+    status: "auction",
+    gradient: "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+    icon: "headphones"
+  },
+  {
+    id: 17,
+    title: "Ancient Relic #456",
+    creator: "@Archaeologist",
+    price: "6.8",
+    rarity: "mythic",
+    category: "collectibles",
+    chain: "ethereum",
+    status: "auction",
+    gradient: "linear-gradient(135deg, #8b4513, #daa520)",
+    icon: "crown"
+  },
+  {
+    id: 18,
+    title: "Space Odyssey",
+    creator: "@SpaceArt",
+    price: "3.7",
+    rarity: "epic",
+    category: "art",
+    chain: "ethereum",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #000428, #004e92)",
+    icon: "rocket"
+  },
+  {
+    id: 19,
+    title: "Crystal Formation",
+    creator: "@GemArtist",
+    price: "1.6",
+    rarity: "rare",
+    category: "art",
+    chain: "polygon",
+    status: "buy-now",
+    gradient: "linear-gradient(135deg, #74b9ff, #0984e3)",
+    icon: "diamond"
+  },
+  {
+    id: 20,
+    title: "Street Photography #99",
+    creator: "@UrbanLens",
+    price: "0.95",
+    rarity: "common",
+    category: "photography",
+    chain: "arbitrum",
+    status: "new",
+    gradient: "linear-gradient(135deg, #636e72, #2d3436)",
+    icon: "camera"
+  }
+];
+
+// Global state
+let currentNFTs = [...sampleNFTs];
+let filteredNFTs = [...sampleNFTs];
+let currentPage = 1;
+const itemsPerPage = 20;
+
+// Mobile menu functionality
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
+const mobileFilterBtn = document.getElementById('mobile-filter-btn');
+const sidebar = document.getElementById('sidebar');
+
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+mobileFilterBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('mobile-active');
+});
+
+// Filter functionality
+function applyFilters() {
+  const sortBy = document.getElementById('sort-select').value;
+  const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+  const maxPrice = parseFloat(document.getElementById('max-price').value) || 999;
+  const ownedOnly = document.getElementById('owned-toggle').checked;
+  
+  // Get selected filter values
+  const selectedChains = Array.from(document.querySelectorAll('.filter-checkbox[value="ethereum"], .filter-checkbox[value="polygon"], .filter-checkbox[value="arbitrum"]'))
+    .filter(cb => cb.checked).map(cb => cb.value);
+  
+  const selectedRarities = Array.from(document.querySelectorAll('.filter-checkbox[value="common"], .filter-checkbox[value="rare"], .filter-checkbox[value="epic"], .filter-checkbox[value="legendary"], .filter-checkbox[value="mythic"]'))
+    .filter(cb => cb.checked).map(cb => cb.value);
+  
+  const selectedCategories = Array.from(document.querySelectorAll('.filter-checkbox[value="art"], .filter-checkbox[value="music"], .filter-checkbox[value="gaming"], .filter-checkbox[value="photography"], .filter-checkbox[value="collectibles"]'))
+    .filter(cb => cb.checked).map(cb => cb.value);
+  
+  const selectedStatuses = Array.from(document.querySelectorAll('.filter-checkbox[value="buy-now"], .filter-checkbox[value="auction"], .filter-checkbox[value="new"]'))
+    .filter(cb => cb.checked).map(cb => cb.value);
+
+  // Apply filters
+  filteredNFTs = currentNFTs.filter(nft => {
+    const price = parseFloat(nft.price);
+    const priceMatch = price >= minPrice && price <= maxPrice;
+    const chainMatch = selectedChains.length === 0 || selectedChains.includes(nft.chain);
+    const rarityMatch = selectedRarities.length === 0 || selectedRarities.includes(nft.rarity);
+    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(nft.category);
+    const statusMatch = selectedStatuses.length === 0 || selectedStatuses.includes(nft.status);
+    
+    return priceMatch && chainMatch && rarityMatch && categoryMatch && statusMatch;
+  });
+
+  // Apply sorting
+  filteredNFTs.sort((a, b) => {
+    switch (sortBy) {
+      case 'price-low':
+        return parseFloat(a.price) - parseFloat(b.price);
+      case 'price-high':
+        return parseFloat(b.price) - parseFloat(a.price);
+      case 'newest':
+        return b.id - a.id; // Assuming higher ID = newer
+      default:
+        return 0;
+    }
+  });
+
+  updateResults();
+}
+
+// Create NFT card HTML
+function createNFTCard(nft) {
+  return `
+    <div class="nft-card fade-in-up" data-id="${nft.id}" onclick="window.location.href='nft-detail.html'" style="cursor: pointer;">
+      <div class="nft-image">
+        <img src="https://picsum.photos/300/300?random=${nft.id + 20}" alt="${nft.title}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; filter: ${getImageFilter(nft.category)};" onerror="this.style.background='${nft.gradient}'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='&lt;span style=&quot;color: white; font-size: 16px;&quot;&gt;${nft.title.split(' ')[0]}&lt;/span&gt;';">
+      </div>
+      <div class="nft-card-body">
+        <h3 class="nft-title">${nft.title}</h3>
+        <div class="nft-creator">
+          <div class="nft-creator-avatar"></div>
+          <span>by ${nft.creator}</span>
+        </div>
+        <div class="nft-footer">
+          <span class="nft-price">${nft.price} ETH</span>
+          <span class="nft-rarity">${nft.rarity}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Get image filter based on category
+function getImageFilter(category) {
+  switch(category) {
+    case 'art': return 'sepia(0.2) saturate(1.2)';
+    case 'music': return 'hue-rotate(270deg) saturate(1.1)';
+    case 'gaming': return 'contrast(1.3) brightness(0.8)';
+    case 'photography': return 'none';
+    case 'collectibles': return 'sepia(0.5) contrast(1.1)';
+    default: return 'none';
+  }
+}
+
+// Update results display
+function updateResults() {
+  const nftGrid = document.getElementById('nft-grid');
+  const resultsCount = document.getElementById('results-count');
+  const emptyState = document.getElementById('empty-state');
+  
+  if (filteredNFTs.length === 0) {
+    nftGrid.style.display = 'none';
+    emptyState.classList.remove('hidden');
+    resultsCount.textContent = 'No results found';
+  } else {
+    nftGrid.style.display = 'grid';
+    emptyState.classList.add('hidden');
+    resultsCount.textContent = `Showing ${filteredNFTs.length} results`;
+    
+    // Display NFTs
+    nftGrid.innerHTML = filteredNFTs.map(nft => createNFTCard(nft)).join('');
+    
+    // Re-initialize icons for new cards
+    lucide.createIcons();
+    
+    // Add hover effects
+    document.querySelectorAll('.nft-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  }
+}
+
+// Event listeners for filters
+document.getElementById('sort-select').addEventListener('change', applyFilters);
+document.getElementById('min-price').addEventListener('input', applyFilters);
+document.getElementById('max-price').addEventListener('input', applyFilters);
+document.getElementById('price-range').addEventListener('input', function() {
+  document.getElementById('max-price').value = this.value;
+  applyFilters();
+});
+document.getElementById('owned-toggle').addEventListener('change', applyFilters);
+
+// Add event listeners to all filter checkboxes
+document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
+  checkbox.addEventListener('change', applyFilters);
+});
+
+// Clear filters functionality
+document.getElementById('clear-filters').addEventListener('click', () => {
+  document.querySelectorAll('.filter-checkbox').forEach(cb => cb.checked = false);
+  document.getElementById('min-price').value = '';
+  document.getElementById('max-price').value = '10';
+  document.getElementById('price-range').value = '10';
+  document.getElementById('owned-toggle').checked = false;
+  document.getElementById('sort-select').value = 'newest';
+  applyFilters();
+});
+
+document.getElementById('clear-all-filters').addEventListener('click', () => {
+  document.getElementById('clear-filters').click();
+});
+
+// Initialize the page
+updateResults();
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  const filterBar = document.getElementById('filter-bar');
+  
+  if (window.scrollY > 50) {
+    header.style.background = 'rgba(10, 10, 10, 0.98)';
+    filterBar.style.top = '64px';
+  } else {
+    header.style.background = 'rgba(10, 10, 10, 0.95)';
+    filterBar.style.top = '64px';
+  }
+});
+
+// Simulate infinite scroll (for demonstration)
+let isLoading = false;
+window.addEventListener('scroll', () => {
+  if (isLoading) return;
+  
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  
+  if (scrollTop + clientHeight >= scrollHeight - 5) {
+    isLoading = true;
+    document.getElementById('loading').style.display = 'block';
+    
+    // Simulate API call delay
+    setTimeout(() => {
+      // In a real app, you would fetch more NFTs here
+      document.getElementById('loading').style.display = 'none';
+      isLoading = false;
+    }, 1500);
+  }
+});
+</script>
+
+</body>
+</html>
